@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mr. Alex Hamburguesas – Nuestro Menú</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&family=Playfair+Display+SC:wght@700&family=Shrikhand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="badge">Nuestro Menú</div>
+  <h1 class="nombre">Mr. Alex<span>Hamburguesas</span></h1>
+  <div class="tagline">13 años con el mismo sabor</div>
+</header>
+
+<form id="pedidoForm">
+
+<!-- HAMBURGUESAS -->
+<section class="menu-section" style="--i:0">
+  <h2 onclick="toggleMenu(this)">🍔 Hamburguesas</h2>
+  <div class="platos" style="display:none;">
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="HamburguesaSencilla" value="Hamburguesa Sencilla" onchange="toggleCantidad(this); toggleDescripcion(this)">Hamburguesa Sencilla</label><span data-precio="14000">$14.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="HamburguesaSencillaCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="HamburguesaConTocineta" value="Hamburguesa Con Tocineta" onchange="toggleCantidad(this); toggleDescripcion(this)">Hamburguesa Con Tocineta</label><span data-precio="16000">$16.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="HamburguesaConTocinetaCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="DobleRes" value="Hamburguesa Doble Res" onchange="toggleCantidad(this); toggleDescripcion(this)">Doble Res</label><span data-precio="20000">$20.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="DobleResCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="HamburguesaMixta" value="Hamburguesa Mixta" onchange="toggleCantidad(this); toggleDescripcion(this)">Hamburguesa Mixta</label><span data-precio="21000">$21.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="HamburguesaMixtaCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="HamburguesaDePollo" value="Hamburguesa De Pollo" onchange="toggleCantidad(this); toggleDescripcion(this)">Hamburguesa De Pollo</label><span data-precio="18000">$18.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="HamburguesaDePolloCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+  </div>
+</section>
+
+<!-- SALCHIPAPAS -->
+<section class="menu-section" style="--i:1">
+  <h2 onclick="toggleMenu(this)">🍟 Salchipapas</h2>
+  <div class="platos" style="display:none;">
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="SalchipapaMixta" value="Salchipapa Mixta" onchange="toggleCantidad(this); toggleDescripcion(this)">Salchipapa Mixta</label><span data-precio="17000">$17.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="SalchipapaMixtaCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="Salchipapa" value="Salchipapa" onchange="toggleCantidad(this); toggleDescripcion(this)">Salchipapa</label><span data-precio="14500">$14.500</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="SalchipapaCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="Salchipollo" value="Salchipollo" onchange="toggleCantidad(this); toggleDescripcion(this)">Salchipollo</label><span data-precio="23000">$23.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="SalchipolloCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+  </div>
+</section>
+
+<!-- MR. COMBOS -->
+<section class="menu-section" style="--i:2">
+  <h2 onclick="toggleMenu(this)">🥤 Mr. Combos</h2>
+  <div class="platos" style="display:none;">
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="Combo1" value="Combo #1" onchange="toggleCantidad(this); toggleDescripcion(this)">Combo #1</label><span data-precio="24000">$24.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="Combo1Cantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="Combo2" value="Combo #2" onchange="toggleCantidad(this); toggleDescripcion(this)">Combo #2</label><span data-precio="22500">$22.500</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="Combo2Cantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="Combo3" value="Combo #3" onchange="toggleCantidad(this); toggleDescripcion(this)">Combo #3</label><span data-precio="41000">$41.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="Combo3Cantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="Combo4" value="Combo #4" onchange="toggleCantidad(this); toggleDescripcion(this)">Combo #4</label><span data-precio="38000">$38.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="Combo4Cantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+  </div>
+</section>
+
+<!-- CARNES -->
+<section class="menu-section" style="--i:3">
+  <h2 onclick="toggleMenu(this)">🥩 Carnes</h2>
+  <div class="platos" style="display:none;">
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="SolomitoDeRes" value="Solomito De Res" onchange="toggleCantidad(this); toggleDescripcion(this)">Solomito De Res</label><span data-precio="32000">$32.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="SolomitoDeResCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="PuntaDeAnca" value="Punta De Anca" onchange="toggleCantidad(this); toggleDescripcion(this)">Punta De Anca</label><span data-precio="35000">$35.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="PuntaDeAncaCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="CanonDeCerdo" value="Cañón De Cerdo" onchange="toggleCantidad(this); toggleDescripcion(this)">Cañón De Cerdo</label><span data-precio="30000">$30.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="CanonDeCerdoCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="FileteDePechuga" value="Filete De Pechuga" onchange="toggleCantidad(this); toggleDescripcion(this)">Filete De Pechuga</label><span data-precio="33000">$33.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="FileteDePechugaCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+  </div>
+</section>
+
+<!-- PERROS -->
+<section class="menu-section" style="--i:4">
+  <h2 onclick="toggleMenu(this)">🌭 Perros</h2>
+  <div class="platos" style="display:none;">
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="PerroSencillo" value="Perro Sencillo" onchange="toggleCantidad(this); toggleDescripcion(this)">Perro Sencillo</label><span data-precio="13000">$13.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="PerroSencilloCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="PerroTocineta" value="Perro Tocineta" onchange="toggleCantidad(this); toggleDescripcion(this)">Perro Tocineta</label><span data-precio="15000">$15.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="PerroTocinetaCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="Perra" value="Perra" onchange="toggleCantidad(this); toggleDescripcion(this)">Perra</label><span data-precio="20000">$20.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="PerraCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div><div class="salsas" style="display:none;"><p>🥫 Elige tu salsa (hasta <b class="maxs"></b>):</p><label class="chip"><input type="checkbox" class="salsa-op" value="Rosada">Rosada</label><label class="chip"><input type="checkbox" class="salsa-op" value="Piña">Piña</label><label class="chip"><input type="checkbox" class="salsa-op" value="Mostaza">Mostaza</label><label class="chip"><input type="checkbox" class="salsa-op" value="BBQ">BBQ</label><label class="chip"><input type="checkbox" class="salsa-op" value="Tomate">Tomate</label><label class="chip"><input type="checkbox" class="salsa-op" value="Ajo">Ajo</label><label class="chip"><input type="checkbox" class="salsa-op" value="Maíz">Maíz</label><label class="chip"><input type="checkbox" class="salsa-op" value="De la casa (tártara)">De la casa (tártara)</label></div></div>
+  </div>
+</section>
+
+<!-- PICADAS -->
+<section class="menu-section" style="--i:5">
+  <h2 onclick="toggleMenu(this)">🍽️ Picadas</h2>
+  <div class="platos" style="display:none;">
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="PicadaPequena" value="Picada Pequeña" onchange="toggleCantidad(this); toggleDescripcion(this)">Picada Pequeña</label><span data-precio="25000">$25.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="PicadaPequenaCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="PicadaPersonal" value="Picada Personal" onchange="toggleCantidad(this); toggleDescripcion(this)">Picada Personal</label><span data-precio="33000">$33.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="PicadaPersonalCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="PicadaMixta" value="Picada Mixta" onchange="toggleCantidad(this); toggleDescripcion(this)">Picada Mixta</label><span data-precio="57000">$57.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="PicadaMixtaCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+  </div>
+</section>
+
+<!-- CHUZOS -->
+<section class="menu-section" style="--i:6">
+  <h2 onclick="toggleMenu(this)">🍢 Chuzos</h2>
+  <div class="platos" style="display:none;">
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="ChuzoDePollo" value="Chuzo de Pollo" onchange="toggleCantidad(this); toggleDescripcion(this)">Pollo</label><span data-precio="24000">$24.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="ChuzoDePolloCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="ChuzoDeCerdo" value="Chuzo de Cerdo" onchange="toggleCantidad(this); toggleDescripcion(this)">Cerdo</label><span data-precio="22000">$22.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="ChuzoDeCerdoCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+    <div class="item"><div class="item-linea"><label><input type="checkbox" class="check-plato" name="ChuzoMixto" value="Chuzo Mixto" onchange="toggleCantidad(this); toggleDescripcion(this)">Mixto</label><span data-precio="24000">$24.000</span><div class="qty"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,-1)">−</button><input type="number" class="cantidad" name="ChuzoMixtoCantidad" value="0" min="0" readonly disabled onchange="calcularTotal()"><button type="button" class="qty-btn" onclick="cambiarCantidad(this,1)">+</button></div></div></div>
+  </div>
+</section>
+
+<!-- DETALLES DEL CLIENTE -->
+<section class="menu-section" style="--i:7">
+  <h2>📝 Detalles del Cliente</h2>
+  <div class="form-group"><label for="nombre">👤 Nombre:</label><input type="text" id="nombre" name="nombre" required placeholder="Tu nombre"></div>
+  <div class="form-group"><label for="telefono">📞 Número de WhatsApp:</label><input type="tel" id="telefono" name="telefono" required placeholder="Ej: 3001234567"></div>
+  <div class="form-group"><label for="tipoEntrega">📦 Tipo de entrega:</label>
+    <select id="tipoEntrega" name="tipoEntrega" required>
+      <option value="">-- Selecciona --</option>
+      <option value="Recoger en el local">Recoger en el local</option>
+      <option value="A domicilio">A domicilio</option>
+      <option value="Comer dentro del local">Comer dentro del local</option>
+    </select>
+  </div>
+  <div id="direccionField" class="form-group" style="display:none;">
+    <p id="costoDomicilio" style="display:none;color:red;font-weight:bold;">El domicilio tiene un costo entre $4.000 y $6.000 según el barrio. Se cuadra por WhatsApp.</p>
+    <label for="direccion">📍 Dirección:</label><input type="text" id="direccion" name="direccion">
+  </div>
+  <div id="mesaField" class="form-group" style="display:none;"><label for="numeroMesa">🔢 Número de mesa:</label><input type="text" id="numeroMesa" name="numeroMesa"></div>
+  <div class="form-group"><label for="tipoPago">💰 Tipo de pago:</label>
+    <select id="tipoPago" name="tipoPago" required>
+      <option value="">-- Selecciona --</option>
+      <option value="Efectivo">Efectivo</option>
+      <option value="Nequi">Nequi</option>
+      <option value="Bancolombia">Bancolombia</option>
+    </select>
+  </div>
+  <div id="efectivoField" class="form-group" style="display:none;"><label for="efectivoCliente">💵 Con cuánto pagará:</label><small>Esto ayuda a preparar el cambio correcto 🙏</small><input type="text" id="efectivoCliente" name="efectivoMonto"></div>
+  <div id="infoPago" style="display:none;">
+    <div id="infoNequi" class="info-transferencia" style="display:none;"><strong>Nequi</strong>
+      <div class="cuenta"><span class="numcuenta">3218301624</span><button type="button" class="copiar" onclick="copiarNumero(this)">📋 Copiar</button></div>
+      Envía el pantallazo del pago por WhatsApp 📲</div>
+    <div id="infoBanco" class="info-transferencia" style="display:none;"><strong>Bancolombia</strong>
+      <div class="cuenta"><span class="numcuenta">01512605172</span><button type="button" class="copiar" onclick="copiarNumero(this)">📋 Copiar</button></div>
+      Envía el pantallazo del pago por WhatsApp 📲</div>
+  </div>
+  <div class="form-group"><label for="especificaciones">📒 Especificaciones:</label><textarea id="especificaciones" name="especificaciones" rows="3" placeholder="Ej: sin cebolla, sin salsas..."></textarea></div>
+</section>
+
+<!-- TOTAL Y ENVÍO -->
+<section class="menu-section" style="--i:8">
+  <h2>💸 Total: <span id="total">$0</span></h2>
+  <input type="hidden" name="totalPedido" id="totalPedido">
+  <div class="form-group"><label><input type="checkbox" id="confirmPedido" required>✅ Autorizo el tratamiento de mis datos para gestionar este pedido.</label></div>
+  <button type="submit" class="btn">📲 Enviar Pedido</button>
+</section>
+
+</form>
+
+<footer>© Mr. Alex Hamburguesas · 13 años con el mismo sabor</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
