@@ -180,8 +180,8 @@ $("pedidoForm").addEventListener("submit", function (e) {
       const sal = [...u.querySelectorAll(".salsa-op:checked")].map(o => o.value);
       const nota = u.querySelector(".nota").value.trim();
       let extra = "";
-      if (sal.length) extra += " – Salsas: " + sal.join(", ");
-      if (nota) extra += " – Nota: " + nota;
+      if (sal.length) extra += "\n\u2003\u2003• Salsas: " + sal.join(", ");
+      if (nota) extra += "\n\u2003\u2003• Nota: " + nota;
       grupos.set(extra, (grupos.get(extra) || 0) + 1);
     });
     grupos.forEach((n, extra) => platos.push("• " + n + " x " + base + extra));
@@ -195,7 +195,8 @@ $("pedidoForm").addEventListener("submit", function (e) {
   const entrega = $("tipoEntrega").value;
   const pago = $("tipoPago").value;
   const m = [];
-  m.push("🍔 *Nuevo pedido – Mr. Alex Hamburguesas*");
+  m.push("🍔 *Nuevo pedido*");
+  m.push("");
   m.push("👤 Nombre: " + $("nombre").value);
   m.push("📞 Teléfono: " + $("telefono").value);
   m.push("");
@@ -219,7 +220,7 @@ $("pedidoForm").addEventListener("submit", function (e) {
   const datos = new FormData();
   datos.append("entry.1943373341", $("nombre").value);
   datos.append("entry.783371005", $("telefono").value);
-  datos.append("entry.799856903", platos.join(" | "));
+  datos.append("entry.799856903", platos.join(" | ").replace(/\s*\n\s*/g, " "));
   datos.append("entry.1322723003", entrega);
   datos.append("entry.2104689249", entrega === "A domicilio" ? $("direccion").value : (entrega === "Comer dentro del local" ? "Mesa " + $("numeroMesa").value : ""));
   datos.append("entry.2021986845", pago);
